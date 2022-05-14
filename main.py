@@ -1,6 +1,6 @@
 import csv
 word = ''
-csv = csv.reader(open(r'C:/Users/migue/Data.csv'))
+csv = csv.reader(open(r'C:/Users/Marcos Caballero/Downloads/Data.csv'))
 ListOfWords = []
 list = []
 for i in csv:
@@ -65,5 +65,25 @@ iterations = 0
 continuee = True
 while continuee:
     iterations+= 1
-
-
+    for FirstRoadLights in HL[0:]:
+        costs = {"N": 1, "E": 1, "W": 1}
+        for action in lights:
+            BellmanProbability = 0
+            for SecondRoadLights in HL:
+                BellmanProbability += DictionaryOfProbabilities[action][HL.index(FirstRoadLights)][HL.index(SecondRoadLights)] * V1[SecondRoadLights][0]
+            costs[action] += BellmanProbability
+        MinimumCostOfActions=min(costs["N"], costs["E"], costs["W"])
+        V2[FirstRoadLights][0] =MinimumCostOfActions
+        if costs["N"] == V2[FirstRoadLights][0]:
+            V2[FirstRoadLights][1] = "N"
+        if costs["E"] == V2[FirstRoadLights][0]:
+            V2[FirstRoadLights][1] = "E"
+        if costs["W"] == V2[FirstRoadLights][0]:
+            V2[FirstRoadLights][1] = "W"
+    continuee = False
+    for FirstRoadLights in HL:
+        if (V2[FirstRoadLights][0] - V1[FirstRoadLights][0]) > 0.001:
+            continuee = True
+        V1[FirstRoadLights][0] = V2[FirstRoadLights][0]
+print(V2)
+print(iterations,"is the number of iterations.")
