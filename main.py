@@ -59,3 +59,11 @@ def funcDictionaryOfProbabilities():
         a+=1
 funcDictionaryOfProbabilities()
 print(DictionaryOfProbabilities)
+V1 = {"HighHighHigh": [0], "HighHighLow": [0], "HighLowHigh": [0], "HighLowLow": [0], "LowHighHigh": [0], "LowHighLow": [0], "LowLowHigh": [0], "LowLowLow": [0]}
+V2 = {"HighHighHigh": [0, 0], "HighHighLow": [0, 0], "HighLowHigh": [0, 0], "HighLowLow": [0, 0],"LowHighHigh": [0, 0], "LowHighLow": [0, 0], "LowLowHigh": [0, 0], "LowLowLow": [0, 0]}
+iterations = 0
+continuee = True
+while continuee:
+    iterations+= 1
+
+
