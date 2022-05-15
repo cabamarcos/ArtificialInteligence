@@ -1,6 +1,6 @@
 import csv
 word = ''
-csv = csv.reader(open(r'C:/Users/Marcos Caballero/Downloads/Data.csv'))
+csv = csv.reader(open(r'C:/Users/migue/Data.csv'))
 ListOfWords = []
 list = []
 for i in csv:
@@ -46,7 +46,7 @@ def funcDictionaryOfProbabilities():
                 sum = sum + Probabilities[j]
             j=0
             while j != 8 and sum!=0:
-                Probabilities[j]=Probabilities[j]/sum
+                Probabilities[j]=round(Probabilities[j]/sum,6)
                 j+=1
             list_probabilities.append(Probabilities)
             b+=1
